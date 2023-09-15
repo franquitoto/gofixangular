@@ -1,7 +1,13 @@
+<app-banner></app-banner>
 <div class="container-principal">
-    <aside class="container-principal__aside"></aside>
+  <aside class="container-principal__aside"></aside>
+  <div>
     <app-slogan></app-slogan>
+    <h3 class="titulo-destacados">Productos destacados</h3>
     <div class="container-principal__destacados">
-
+      <div *ngFor="let producto of productos">
+        {{ producto.nombre }}
+      </div>
     </div>
+  </div>
 </div>

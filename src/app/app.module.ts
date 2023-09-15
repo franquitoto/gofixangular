@@ -8,6 +8,13 @@ import { HeaderComponent } from './header/header.component';
 import { BannerComponent } from './banner/banner.component';
 import { SloganComponent } from './slogan/slogan.component';
 import { InicioComponent } from './inicio/inicio.component';
+import { LocalesComponent } from './locales/locales.component';
+import { ContactoComponent } from './contacto/contacto.component';
+import { FooterComponent } from './footer/footer.component';
+import { ProductoComponent } from './producto/producto.component';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { ProductosComponent } from './productos/productos.component';
+
 
 @NgModule({
   declarations: [
@@ -16,11 +23,17 @@ import { InicioComponent } from './inicio/inicio.component';
     HeaderComponent,
     BannerComponent,
     SloganComponent,
-    InicioComponent
+    InicioComponent,
+    ProductosComponent,
+    LocalesComponent,
+    ContactoComponent,
+    FooterComponent,
+    ProductoComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
