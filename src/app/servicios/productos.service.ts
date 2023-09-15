@@ -18,11 +18,11 @@ interface Producto {
   providedIn: 'root'
 })
 export class ProductosService {
-  private apiUrl = 'http://localhost:3000/api'; // Reemplaza con la URL de tu API
+  private apiUrl = 'http://localhost:3000/api/productos'; // Reemplaza con la URL de tu API
 
   constructor(private http: HttpClient) {}
 
   getProductos(): Observable<Producto[]> {
-    return this.http.get<Producto[]>(this.apiUrl + '/productos');
+    return this.http.get<Producto[]>(this.apiUrl);
   }
 }

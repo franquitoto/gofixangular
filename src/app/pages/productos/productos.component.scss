@@ -1,0 +1,38 @@
+@use '../../../sass/variables';
+.container-principal{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  @media (min-width: 1115px){
+    display: grid;
+    grid-template-columns: 1fr 4fr 1fr;
+  }
+  &__titulo{
+    text-align: center;
+    color: variables.$black;
+    font-weight: 700;
+  }
+  &__aside{
+    display: none;
+    @media (min-width: 1115px){
+      display: block;
+    }
+  }
+  &__derecha{
+    display: none;
+    @media (min-width: 1115px){
+      display: block;
+    }
+  }
+  &__products{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    @media (min-width: 1115px){
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+  }
+}

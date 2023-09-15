@@ -6,7 +6,9 @@
     <h3 class="titulo-destacados">Productos destacados</h3>
     <div class="container-principal__destacados">
       <div *ngFor="let producto of productos">
-        {{ producto.nombre }}
+        <ng-container *ngIf="producto.destacado === 'SI'">
+          <app-producto [producto]="producto"></app-producto>
+        </ng-container>
       </div>
     </div>
   </div>
