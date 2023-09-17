@@ -1,4 +1,4 @@
-<div class="baner" id="baner1">
+<div class="baner" id="baner1" *ngIf="mostrarBanner1 " [ngClass]="claseBanner1" >
     <div class="baner__info">
       <p class="baner__info-titulo">¿queres tener tu propio local goxif?</p>
       <p class="baner__info-body">informate como abrir tu local hoy</p>
@@ -8,7 +8,7 @@
       <img class="baner__img" src="../../assets/img/empresario-franquicias-gofix.png" alt="">
     </div>
   </div>
-  <div class="baner2" id="baner2">
+  <div class="baner2" id="baner2" *ngIf="mostrarBanner2" [ngClass]="claseBanner2">
     <div class="baner2__contenedorImg">
       <img class="baner2__img" src="../../assets/img/reparacion-de-celular-1.png" alt="">
     </div>
@@ -19,6 +19,6 @@
     </div>
   </div>
   <div class="flechas">
-    <img class="flechas_img-menor" src="../../assets/img/simbolo-menor-que.png" alt="" onclick="mostrarBannerAnterior()">
-    <img class="flechas_img-mayor" src="../../assets/img/mayor-que-el-simbolo.png" alt="" onclick="mostrarSiguienteBanner()">
+    <img class="flechas_img-menor" src="../../assets/img/simbolo-menor-que.png" alt="" (click)="mostrarBannerAnterior()">
+    <img class="flechas_img-mayor" src="../../assets/img/mayor-que-el-simbolo.png" alt="" (click)="mostrarSiguienteBanner()">
   </div>

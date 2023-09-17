@@ -3,10 +3,10 @@
     <p class="card-category" id="categoria">Categoria</p>
     <p class="card-tittle" id="titulo-producto">{{producto.nombre}}</p>
   </div>
-  <img class="card-img" id="imagen-producto" [src]="producto.imagenUrl" alt="">
+  <img class="card-img" id="imagen-producto" [src]="producto.imagenUrl" alt="" (click)="vistaDeDetalle()">
   <div class="card-footer">
     <p class="card-precio" id="precio-producto">${{producto.precio}}</p>
     <button class="card-add"><i class="bi bi-pencil-square"></i></button>
-    <button class="card-add"><i class="bi bi-bag-plus-fill"></i></button>
+    <button class="card-add"><i class="bi bi-bag-plus-fill" (click)="agregarAlCarrito(producto._id)"></i></button>
   </div>
 </div>

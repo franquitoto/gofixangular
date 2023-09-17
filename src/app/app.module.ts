@@ -14,6 +14,9 @@ import { FooterComponent } from './components/footer/footer.component';
 import { ProductoComponent } from './components/producto/producto.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { ProductosComponent } from './pages/productos/productos.component';
+import { DetalleComponent } from './pages/detalle/detalle.component';
+import { PopupCarritoComponent } from './components/popup-carrito/popup-carrito.component';
+import { PopuCarritoDetalleComponent } from './components/popu-carrito-detalle/popu-carrito-detalle.component';
 
 
 @NgModule({
@@ -28,7 +31,10 @@ import { ProductosComponent } from './pages/productos/productos.component';
     LocalesComponent,
     ContactoComponent,
     FooterComponent,
-    ProductoComponent
+    ProductoComponent,
+    DetalleComponent,
+    PopupCarritoComponent,
+    PopuCarritoDetalleComponent
   ],
   imports: [
     BrowserModule,

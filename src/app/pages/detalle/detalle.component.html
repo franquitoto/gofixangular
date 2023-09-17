@@ -1,0 +1,37 @@
+<div class="div">
+  <section class="content">
+    <article class="image" >
+      <img class="content__img" src={{imagen}} alt="">
+    </article>
+    <article class="detalle">
+      <h2 class="detalle__company">GO FIX</h2>
+      <!-- el signo de pregunta luego de la variable producto es porque se espera un undefined, si es undefined tiene un relleno por defecto -->
+      <h2 class="detalle__tittle">{{producto?.nombre || 'titulo producto'}}</h2>
+      <p class="detalle__descripcion">{{producto?.descripcion || 'Descripcion de producto'}}</p>
+      <div class="detalle__detalles">
+        <p class="detalle__detalles-categoria">{{producto?.categoria || 'categoria producto'}}</p>
+        <p >Color: <span class="detalle__detalles-color">{{producto?.color || 'color producto'}}</span></p>
+        <p >Memoria: <span class="detalle__detalles-memoria">{{producto?.capacidad || 'capacidad producto'}}</span></p>
+        <p class="detalle__detalles-precio">${{producto?.precio || 'precio producto'}}</p>
+      </div>
+      <div class="detalle__quantity">
+        <div class="input">
+          <img id="menos" class="input__menos" src="../../../assets/img/signo-menos-de-una-linea-en-posicion-horizontal.png" alt="menos" (click)="aumentarCantidad($event, 'menos')">
+          <input type="text" class="input__number" [value]="cantidad">
+          <img id="mas" class="input__menos" src="../../../assets/img/mas.png" alt="mas" (click)="aumentarCantidad($event, 'mas')">
+        </div>
+        <button id="aversifunciona" class="detalle__button" (click)="agregarAlCarrito()"><img class="detalle__button-cart" src="../../../assets/img/bolsa-de-la-compra.png" alt="mas">Agregar al carrito</button>
+      </div>
+      <span *ngIf="mostrar" class="detalle__span">No puede agregar 0 productos</span>
+    </article>
+  </section>
+  <!-- inicio cart modal -->
+  <!-- <div id="cart-modal" class="cart-modal">
+    <p class="cart-modal__tittle">Carrito</p>
+    <div class="cart-modal__container">
+      <div class="cart-modal__detalles"></div>
+      <button class="cart-modal__button">Comprar</button>
+    </div>
+  </div> -->
+  <!-- fin cart modal -->
+</div>
