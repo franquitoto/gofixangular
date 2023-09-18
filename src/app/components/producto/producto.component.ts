@@ -20,4 +20,7 @@ export class ProductoComponent {
   agregarAlCarrito(id: string){
     this.carritoService.agregarAlCarrito(id,1)
   }
+  agregarAlCarritoCompleto(producto: object){
+    this.carritoService.agregarAlCarritoCompleto(producto)
+  }
 }

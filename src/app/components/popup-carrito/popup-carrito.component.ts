@@ -8,11 +8,17 @@ import { ProductosService } from 'src/app/servicios/productos.service';
   styleUrls: ['./popup-carrito.component.scss']
 })
 export class PopupCarritoComponent {
-  constructor (private carritoService: CarritoService, private productosService: ProductosService){}
+  productos: any = []
+  constructor (private carritoService: CarritoService, private productosService: ProductosService){
+    console.log(this.repeticiones, "hola")
+  }
   repeticiones: any = this.carritoService.obtenerCarrito()
-
+  
+  
+   
   getDetalleProducto(id: string){
     return this.productosService.getProduct(id);
   }
+  
   
 }

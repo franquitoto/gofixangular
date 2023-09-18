@@ -2,7 +2,7 @@
   <p class="cart-modal__tittle">Carrito</p>
   <div class="cart-modal__container">
     <div class="cart-modal__detalles">
-      <!-- <app-popu-carrito-detalle *ngFor="let producto of repeticiones" [id]="producto.id" [detalle]="getDetalleProducto(producto.id)"></app-popu-carrito-detalle>  -->
+      <app-popu-carrito-detalle *ngFor="let producto of repeticiones, let i = index" [id]="producto.id" [detalle]="producto"></app-popu-carrito-detalle>
     </div>
     <button class="cart-modal__button">Comprar</button>
   </div>

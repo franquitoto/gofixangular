@@ -12,7 +12,6 @@ export class InicioComponent {
 
 
   constructor(private productosService: ProductosService) { }
-
   ngOnInit(): void {
     this.productosService.getProductos().subscribe((data: any) => {
       if (Array.isArray(data.productos)) {

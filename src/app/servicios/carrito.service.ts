@@ -33,11 +33,17 @@ export class CarritoService {
     }
     this.guardarCarritoEnStorage();
     this.numeritoSource.next(this.carrito.length);
+    
   }
   obtenerCarrito() {
     return this.carrito;
   }
   private guardarCarritoEnStorage() {
     sessionStorage.setItem('carrito', JSON.stringify(this.carrito));
+  }
+  agregarAlCarritoCompleto(producto: object){
+    this.carrito.push(producto)
+    this.guardarCarritoEnStorage();
+    this.numeritoSource.next(this.carrito.length);
   }
 }

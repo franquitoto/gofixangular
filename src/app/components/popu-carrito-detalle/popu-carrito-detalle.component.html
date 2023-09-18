@@ -1,8 +1,8 @@
 <div class="cart-modal__detalle">
-  <img class="cart-modal__img"  src="../../../assets/img/celular-de-prueba.png" alt="">
-  <div *ngIf="detalle | async as producto">
-    <p class="cart-modal__product">{{detalle.nombre}} hola</p>
-    <p class="cart-modal__price">$700 x3 <span>$2100</span></p>
+  <img class="cart-modal__img"  src={{imagen}} alt="">
+  <div>
+    <p class="cart-modal__product">{{producto.nombre}}</p>
+    <p class="cart-modal__price">${{producto.precio}} x{{detalle.cantidad}} <span>${{producto.precio * detalle.cantidad}}</span></p>
   </div>
   <img class="cart-modal__delete" src="../../../assets/img/borrar.png" alt="delete">
 </div> 
