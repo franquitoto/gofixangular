@@ -1,4 +1,6 @@
-<div id="cart-modal" class="cart-modal">
+
+<div id="cart-modal" class="cart-modal" *ngIf="carritoService.mostrarCarrito">
+  <i class="bi bi-x-lg cart-modal__cierre" (click)="ocultarCarritoEmergente()"></i>
   <p class="cart-modal__tittle">Carrito</p>
   <div class="cart-modal__container">
     <div class="cart-modal__detalles">

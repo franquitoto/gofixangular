@@ -40,8 +40,8 @@
     </div> -->
     <!-- Fin navbar modal -->
     <div class="header__cart-avatar">
-      <div class="header__cart">
-        <div class="header__cart--notification">{{numerito}}</div>
+      <div class="header__cart" (click)="mostrarCarritoEmergente()">
+        <div class="header__cart--notification" >{{numerito}}</div>
         <img
           id="cartBolsa"
           class="header__cart--bolsa"

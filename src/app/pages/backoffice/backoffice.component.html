@@ -1,0 +1,148 @@
+<div class="container">
+  <div class="container__aside"></div>
+  <div class="container__forms">
+    <form class="container__forms-backoffice" id="formProductos" *ngIf="usuarioService.formProduct">
+      <p id="heading" class="container__forms-heading">Agrega un nuevo producto</p>
+      <div class="modal-login__form-field">
+        <input
+          id="nombre"
+          autocomplete="off"
+          placeholder="nombre"
+          class="modal-login__form-input-field"
+          type="text"
+          name="nombre"
+        />
+      </div>
+      <div class="modal-login__form-field">
+        <input
+          autocomplete="off"
+          placeholder="categoria"
+          class="modal-login__form-input-field"
+          type="text"
+          name="categoria"
+        />
+      </div>
+      <div class="modal-login__form-field">
+        <input
+          id="precio"
+          autocomplete="off"
+          placeholder="precio"
+          class="modal-login__form-input-field"
+          type="number"
+          name="precio"
+        />
+      </div>
+      <div class="modal-login__form-field">
+        <input
+          autocomplete="off"
+          placeholder="descripcion"
+          class="modal-login__form-input-field"
+          type="text"
+          name="descripcion"
+        />
+      </div>
+      <div class="modal-login__form-field">
+        <input
+          autocomplete="off"
+          placeholder="modelo"
+          class="modal-login__form-input-field"
+          type="text"
+          name="modelo"
+        />
+      </div>
+      <div class="modal-login__form-field">
+        <input
+          autocomplete="off"
+          placeholder="capacidad"
+          class="modal-login__form-input-field"
+          type="text"
+          name="capacidad"
+        />
+      </div>
+      <div class="modal-login__form-field">
+        <input
+          autocomplete="off"
+          placeholder="marca"
+          class="modal-login__form-input-field"
+          type="text"
+          name="marca"
+        />
+      </div>
+      <div class="modal-login__form-field">
+        <input
+          autocomplete="off"
+          placeholder="color"
+          class="modal-login__form-input-field"
+          type="text"
+          name="color"
+        />
+      </div>
+      <div class="modal-login__form-field" type="file">
+        <label for="file">
+          <span id="file-name"><i class="bi bi-file-earmark-arrow-up-fill"></i>Seleccionar archivo<i class="bi bi-file-earmark-arrow-up-fill"></i></span>
+        </label>
+        <input 
+        id="file"
+        type="file"
+        name="imagen"
+        onchange="updateFileName()" >
+      </div>
+      <span id="spanDuplicados" class="span-duplicados">Los valores marcados en rojo ya existen, por favor modificalos</span>
+      <div class="modal-login__form-btn">
+        <button type="submit" class="modal-login__form-button1">Enviar</button>
+      </div>
+    </form>
+    <form class="container__forms-backoffice" id="formUsuarios" *ngIf="usuarioService.formUsuario">
+      <p id="heading" class="modal-login__form-heading">Agrega un nuevo usuario</p>
+      <div class="modal-login__form-field">
+        <input
+          onchange="compararValorUsername(this.value)"
+          id="username"
+          autocomplete="off"
+          placeholder="username"
+          class="modal-login__form-input-field"
+          type="text"
+          name="username"
+        />
+      </div>
+      <div class="modal-login__form-field">
+        <input
+          autocomplete="off"
+          placeholder="password"
+          class="modal-login__form-input-field"
+          type="password"
+          name="password"
+        />
+      </div>
+      <div class="modal-login__form-field">
+        <input
+          id="email"
+          onchange="compararValorEmail(this.value)"
+          autocomplete="off"
+          placeholder="email"
+          class="modal-login__form-input-field"
+          type="email"
+          name="email"
+        />
+      </div>
+      <div class="modal-login__form-field">
+        <select name="roles" class="modal-login__form-input-field select"type="text">
+          <option class="option" value="admin">admin</option>
+          <option class="option" value="moderator">moderator</option>
+          <option class="option" value="user">user</option>
+        </select>
+      </div>
+      <span id="spanDuplicados" class="span-duplicados">Los valores marcados en rojo ya existen, por favor modificalos</span>
+      <div class="modal-login__form-btn">
+        <button type="submit" class="modal-login__form-button1">Enviar</button>
+      </div>
+    </form>
+    <div  id="nuevoProducto" class="container__forms-opcion" (click)="usuarioService.mostrarFormProduct()" *ngIf="usuarioService.formOpcion">
+      <p id="heading" class="container__forms-heading">Agrega un nuevo producto</p>
+    </div>
+    <div  id="nuevoUsuario" class="container__forms-opcion" (click)="usuarioService.mostrarFormUsuario()" *ngIf="usuarioService.formOpcion">
+      <p id="heading" class="container__forms-heading">Agrega un nuevo usuario</p>
+    </div>
+  </div>
+  <div class="container__derecha"></div>
+</div>

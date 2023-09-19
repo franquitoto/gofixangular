@@ -9,4 +9,8 @@ import { CarritoService } from './servicios/carrito.service';
 export class AppComponent {
   title = 'gofixAngular';
   constructor(private carritoService: CarritoService){}
+
+  ocultarCarritoEmergente(){
+    this.carritoService.ocultarCarritoEmergente()
+  }
 }

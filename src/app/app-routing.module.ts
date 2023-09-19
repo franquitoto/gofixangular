@@ -5,13 +5,15 @@ import { ProductosComponent } from './pages/productos/productos.component';
 import { LocalesComponent } from './pages/locales/locales.component';
 import { ContactoComponent } from './pages/contacto/contacto.component';
 import { DetalleComponent } from './pages/detalle/detalle.component';
+import { BackofficeComponent } from './pages/backoffice/backoffice.component';
 
 const routes: Routes = [
   {path: '', component: InicioComponent},
   {path: 'productos', component: ProductosComponent},
   {path: 'locales', component: LocalesComponent},
   {path: 'contacto', component: ContactoComponent},
-  { path: 'detalle/:id', component: DetalleComponent }
+  {path: 'detalle/:id', component: DetalleComponent },
+  {path: 'backoffice', component: BackofficeComponent }
 ];
 
 @NgModule({

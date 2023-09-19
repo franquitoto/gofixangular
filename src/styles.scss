@@ -6,3 +6,8 @@
     box-sizing: border-box;
     font-family: variables.$font;
 }
+body{
+    padding-bottom: 250px;
+    position: relative;
+    min-height: 100vh;
+}

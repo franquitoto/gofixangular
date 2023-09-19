@@ -6,6 +6,8 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root'
 })
 export class CarritoService {
+  // Variable para manejar la ventana emergente del carrito
+  public mostrarCarrito: boolean = false;
   private carrito: any[] = [];
   private numeritoSource = new BehaviorSubject<number>(0);
   numerito$ = this.numeritoSource.asObservable();
@@ -33,6 +35,10 @@ export class CarritoService {
     }
     this.guardarCarritoEnStorage();
     this.numeritoSource.next(this.carrito.length);
+    this.mostrarCarrito = true;
+    setTimeout(() => {
+      this.mostrarCarrito = false
+    }, 5000);
     
   }
   obtenerCarrito() {
@@ -41,9 +47,13 @@ export class CarritoService {
   private guardarCarritoEnStorage() {
     sessionStorage.setItem('carrito', JSON.stringify(this.carrito));
   }
-  agregarAlCarritoCompleto(producto: object){
-    this.carrito.push(producto)
-    this.guardarCarritoEnStorage();
-    this.numeritoSource.next(this.carrito.length);
+  mostrarCarritoEmergente(){
+    this.mostrarCarrito = true
+    setTimeout(() => {
+      this.mostrarCarrito = false
+    }, 10000);
+  }
+  ocultarCarritoEmergente(){
+    this.mostrarCarrito = false
   }
 }

@@ -20,4 +20,7 @@ export class HeaderComponent implements OnInit {
     const carritoInicial = JSON.parse(sessionStorage.getItem('carrito') || '[]');
     this.numerito = carritoInicial.length;
   }
+  mostrarCarritoEmergente(){
+    this.carritoService.mostrarCarritoEmergente()
+  }
 }

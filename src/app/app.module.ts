@@ -17,6 +17,8 @@ import { ProductosComponent } from './pages/productos/productos.component';
 import { DetalleComponent } from './pages/detalle/detalle.component';
 import { PopupCarritoComponent } from './components/popup-carrito/popup-carrito.component';
 import { PopuCarritoDetalleComponent } from './components/popu-carrito-detalle/popu-carrito-detalle.component';
+import { PopupLoginComponent } from './components/popup-login/popup-login.component';
+import { BackofficeComponent } from './pages/backoffice/backoffice.component';
 
 
 @NgModule({
@@ -34,7 +36,9 @@ import { PopuCarritoDetalleComponent } from './components/popu-carrito-detalle/p
     ProductoComponent,
     DetalleComponent,
     PopupCarritoComponent,
-    PopuCarritoDetalleComponent
+    PopuCarritoDetalleComponent,
+    PopupLoginComponent,
+    BackofficeComponent
   ],
   imports: [
     BrowserModule,
