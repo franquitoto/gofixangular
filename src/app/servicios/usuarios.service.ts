@@ -1,5 +1,7 @@
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +12,7 @@ export class UsuariosService {
   public formUsuario: boolean = false
   public formProduct: boolean = false
 
-  constructor() { }
+  constructor(private http: HttpClient) {}
 
   mostrarPopup(){
     this.popupLogin = true
@@ -39,5 +41,13 @@ export class UsuariosService {
   }
   ocultarFormProduct(){
     this.formProduct = false
+  }
+  login(username: string, password: string): Observable<any> {
+    const requestBody = { username, password };
+    return this.http.post('http://localhost:3000/api/auth/signin', requestBody);
+  }
+  verificarToken(token: string): Observable<boolean> {
+    const headers = new HttpHeaders().set('token', token);
+    return this.http.post<boolean>('http://localhost:3000/api/auth/isadmin', null, { headers });
   }
 }
