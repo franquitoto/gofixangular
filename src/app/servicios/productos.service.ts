@@ -29,6 +29,10 @@ export class ProductosService {
     const productUrl = `${this.apiUrl}/${id}`;
     return this.http.get<Producto>(productUrl);
   }
+  agregarProducto(formData: any) {
+    return this.http.post(this.apiUrl, formData);
+  }
+  
   
   
 }
