@@ -4,8 +4,8 @@
       <li><a routerLink="/productos" class="navbar__link">Productos</a></li>
       <li><a routerLink="/locales" class="navbar__link">Locales</a></li>
       <li><a routerLink="/contacto" class="navbar__link">Contacto</a></li>
-      <li id="configuracionAdmin">
-        <a routerLink="/backoffice"  class="navbar__link" (click)="usuariosService.mostrarFormOpcion()"><i class="bi bi-gear"></i></a>
+      <li id="configuracionAdmin" *ngIf="usuariosService.adminAcces">
+        <a routerLink="/backoffice"   class="navbar__link" (click)="usuariosService.mostrarFormOpcion()"><i class="bi bi-gear"></i></a>
       </li>
     </ul>
   </nav>

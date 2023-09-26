@@ -12,7 +12,7 @@ export class PopuCarritoDetalleComponent {
   @Input() detalle: any;
   producto:any = ''
   imagen : string = ''
-  constructor(private productoService: ProductosService){
+  constructor(private productoService: ProductosService, private carritoService: CarritoService){
 
   }
   
@@ -23,8 +23,12 @@ export class PopuCarritoDetalleComponent {
   loadProductDetails() {
     this.productoService.getProduct(this.detalle.producto).subscribe((producto: any) => {
       this.producto = producto;
-      this.imagen = producto.imagen.urlImg
+      this.imagen = producto.imagen_url
     });
+  }
+  quitarDelCarrito(){
+    this.carritoService.quitarProductoDelCarrito(this.producto.id)
+    this.carritoService.actualizarPrecioFinal()
   }
 
 }

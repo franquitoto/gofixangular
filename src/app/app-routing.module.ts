@@ -6,6 +6,8 @@ import { LocalesComponent } from './pages/locales/locales.component';
 import { ContactoComponent } from './pages/contacto/contacto.component';
 import { DetalleComponent } from './pages/detalle/detalle.component';
 import { BackofficeComponent } from './pages/backoffice/backoffice.component';
+import { CarritoComponent } from './pages/carrito/carrito.component';
+import { AdminGuard } from './admin.guard';
 
 const routes: Routes = [
   {path: '', component: InicioComponent},
@@ -13,7 +15,8 @@ const routes: Routes = [
   {path: 'locales', component: LocalesComponent},
   {path: 'contacto', component: ContactoComponent},
   {path: 'detalle/:id', component: DetalleComponent },
-  {path: 'backoffice', component: BackofficeComponent }
+  {path: 'backoffice', component: BackofficeComponent, canActivate:[AdminGuard] },
+  {path: 'carrito', component: CarritoComponent }
 ];
 
 @NgModule({

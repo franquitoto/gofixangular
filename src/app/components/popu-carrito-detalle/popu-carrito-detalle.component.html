@@ -4,5 +4,5 @@
     <p class="cart-modal__product">{{producto.nombre}}</p>
     <p class="cart-modal__price">${{producto.precio}} x{{detalle.cantidad}} <span>${{producto.precio * detalle.cantidad}}</span></p>
   </div>
-  <img class="cart-modal__delete" src="../../../assets/img/borrar.png" alt="delete">
+  <img class="cart-modal__delete" src="../../../assets/img/borrar.png" alt="delete" (click)="quitarDelCarrito()">
 </div> 

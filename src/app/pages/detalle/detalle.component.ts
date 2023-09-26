@@ -16,6 +16,7 @@ export class DetalleComponent implements OnInit {
   producto: Producto | undefined;
   imagen : string = ''
   productId: string = ''; // Declarar la propiedad
+  precio: any = 0
   constructor(private route: ActivatedRoute, private productoService: ProductosService, private carritoService: CarritoService) { } // Inyectamos activatedRoute en el constructor
   ngOnInit() : void {
     // Accede al parámetro de la URL llamado 'id' (que corresponde al ID del producto)
@@ -29,7 +30,8 @@ export class DetalleComponent implements OnInit {
   loadProductDetails() {
     this.productoService.getProduct(this.productId).subscribe((producto: any) => {
       this.producto = producto;
-      this.imagen = producto.imagen.urlImg
+      this.imagen = producto.imagen_url
+      this.precio= producto.precio
     });
   }
   
@@ -49,7 +51,7 @@ export class DetalleComponent implements OnInit {
       this.mostrar = true
     }else{
       this.mostrar = false
-      this.carritoService.agregarAlCarrito(this.productId, this.cantidad)
+      this.carritoService.agregarAlCarrito(this.productId, this.cantidad, this.precio)
       this.cantidad = 0
     }
     

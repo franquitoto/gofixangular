@@ -13,11 +13,12 @@ export class ProductosComponent {
 
   ngOnInit() : void{
     this.productosService.getProductos().subscribe((data: any) => {
-      if (Array.isArray(data.productos)) {
+      console.log(data.Productos)
+      if (Array.isArray(data.Productos)) {
         // Agregar la propiedad imagenUrl a cada producto
-        this.productos = data.productos.map((producto: any) => ({
+        this.productos = data.Productos.map((producto: any) => ({
           ...producto,
-          imagenUrl: producto.imagen.urlImg
+          imagenUrl: producto.imagen_url
         }));
         console.log(this.productos);
       } else {

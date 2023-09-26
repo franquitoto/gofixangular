@@ -1,0 +1,16 @@
+<div class="modal-navbar__background" *ngIf="navbarService.mostrarModalNavbar">
+  <nav class="modal-navbar">
+    <img
+      src="../../../assets/img/cerrar.png"
+      alt="close-icon"
+      class="modal-navbar__close-icon"
+      (click)="cerrar()"
+    />
+    <ul class="modal-navbar__items">
+      <li><a routerLink="" class="modal-navbar__link" (click)="cerrar()">Inicio</a></li>
+      <li><a routerLink="productos" class="modal-navbar__link" (click)="cerrar()">Productos</a></li>
+      <li><a routerLink="locales" class="modal-navbar__link" (click)="cerrar()">Locales</a></li>
+      <li><a routerLink="contacto" class="modal-navbar__link" (click)="cerrar()">Contacto</a></li>
+    </ul>
+  </nav>
+</div>

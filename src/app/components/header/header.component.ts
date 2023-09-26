@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CarritoService } from 'src/app/servicios/carrito.service';
+import { NavbarService } from 'src/app/servicios/navbar.service';
 
 
 @Component({
@@ -10,7 +11,7 @@ import { CarritoService } from 'src/app/servicios/carrito.service';
 export class HeaderComponent implements OnInit {
   numerito: number = 0;
 
-  constructor( private carritoService: CarritoService) {}
+  constructor( private carritoService: CarritoService, private navbarService: NavbarService) {}
 
   ngOnInit() {
     this.carritoService.numerito$.subscribe((numerito) => {
@@ -22,5 +23,8 @@ export class HeaderComponent implements OnInit {
   }
   mostrarCarritoEmergente(){
     this.carritoService.mostrarCarritoEmergente()
+  }
+  mostrarModalNavbar(){
+    this.navbarService.mostrarModalNavbarFunction()
   }
 }

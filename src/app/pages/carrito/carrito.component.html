@@ -1,0 +1,20 @@
+<div class="div">  
+  <!-- inicio cart -->
+  <div id="cart" class="cart">
+    <div class="cart__container" *ngIf="numerito>0">
+      <div class="cart__detalle">
+        <app-popu-carrito-detalle *ngFor="let producto of repeticiones, let i = index" [id]="producto.id" [detalle]="producto"></app-popu-carrito-detalle>
+      </div>
+      <div class="cart__total">
+        <div class="cart__total-precio">${{precioFinal}}</div>
+        <button class="cart__button">Finalizar Compra</button>
+      </div>
+    </div>
+    <div class="cart__container2" *ngIf="numerito<1">
+      <h3 class="text-center">Carrito vacio</h3>
+      <img src="../../../assets/img/carrito2png.png" alt="">
+      <button routerLink="/productos" class="cart__button" >Ir a comprar</button>
+    </div>
+  </div>
+  <!-- fin cart -->
+</div>

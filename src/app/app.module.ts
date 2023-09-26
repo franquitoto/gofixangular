@@ -20,6 +20,8 @@ import { PopuCarritoDetalleComponent } from './components/popu-carrito-detalle/p
 import { PopupLoginComponent } from './components/popup-login/popup-login.component';
 import { BackofficeComponent } from './pages/backoffice/backoffice.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { CarritoComponent } from './pages/carrito/carrito.component';
+import { ModalNavbarComponent } from './components/modal-navbar/modal-navbar.component';
 
 
 @NgModule({
@@ -39,7 +41,9 @@ import { ReactiveFormsModule } from '@angular/forms';
     PopupCarritoComponent,
     PopuCarritoDetalleComponent,
     PopupLoginComponent,
-    BackofficeComponent
+    BackofficeComponent,
+    CarritoComponent,
+    ModalNavbarComponent
   ],
   imports: [
     BrowserModule,

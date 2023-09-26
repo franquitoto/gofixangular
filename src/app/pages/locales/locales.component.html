@@ -1,1 +1,22 @@
-<p>locales works!</p>
+<div class="container-principal">
+  <aside class="container-principal__aside"></aside>
+  <div>
+    <h3 class="container-principal__titulo">Locales</h3>
+    <div class="locales" >
+      <div class="locales__local" *ngFor="let local of locales">
+        <img class="locales__local-img" src="../../../assets/img/locales.png" alt="locales">
+        <div class="locales__local-content">
+            <h3>{{local.local}}</h3>
+            <p>{{local.direccion}}</p>
+            <p>{{local.horario}}</p>
+            <p>{{local.telefono}}</p>
+            <p>{{local.telefono}}</p>
+            <p>{{local.mail}}</p>
+        </div>
+        <div class="locales__local-button">
+            <p>IR AL LOCAL</p>
+        </div>
+    </div>
+    </div>
+  </div>
+</div>

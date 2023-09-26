@@ -12,18 +12,23 @@ export class AppComponent {
   constructor(private carritoService: CarritoService, private usuariosService: UsuariosService){}
   ngOnInit() {
     const token = sessionStorage.getItem('token');
-
+    this.usuariosService.esAdmin(token)
     if (token) {
-      console.log(token)
-      this.usuariosService.verificarToken(token).subscribe(
-        (esAdmin) => {
-          console.log(esAdmin)
-          if (esAdmin) {
+      // Le sacamos las comillas al token (hecho con chat gpt)
+      const tokenWithoutQuotes = token.replace(/^"(.*)"$/, '$1');
+  
+      console.log(tokenWithoutQuotes);
+      this.usuariosService.logueado(tokenWithoutQuotes).subscribe(
+        (logueado) => {
+          console.log(logueado);
+          if (logueado) {
             // El token corresponde a un admin, puedes realizar acciones adicionales aquí.
-            console.log('Es un administrador');
+            this.usuariosService.ocultarPopup()
+            console.log('El usuario esta logueado');
           } else {
             // El token no corresponde a un admin.
-            console.log('No es un administrador');
+            console.log('El usuario no esta logueado');
+            this.usuariosService.mostrarPopup()
           }
         },
         (error) => {
@@ -33,7 +38,9 @@ export class AppComponent {
     } else {
       console.log('No existe token bro');
     }
+    
   }
+  
 
   ocultarCarritoEmergente(){
     this.carritoService.ocultarCarritoEmergente()

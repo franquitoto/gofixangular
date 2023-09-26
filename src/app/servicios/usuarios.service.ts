@@ -11,6 +11,7 @@ export class UsuariosService {
   public formOpcion: boolean = true
   public formUsuario: boolean = false
   public formProduct: boolean = false
+  public adminAcces: boolean = false
 
   constructor(private http: HttpClient) {}
 
@@ -44,10 +45,46 @@ export class UsuariosService {
   }
   login(username: string, password: string): Observable<any> {
     const requestBody = { username, password };
-    return this.http.post('http://localhost:3000/api/auth/signin', requestBody);
+    console.log(requestBody)
+    return this.http.post('http://localhost:3000/api/login', requestBody);
   }
   verificarToken(token: string): Observable<boolean> {
     const headers = new HttpHeaders().set('token', token);
-    return this.http.post<boolean>('http://localhost:3000/api/auth/isadmin', null, { headers });
+    return this.http.post<boolean>('http://localhost:3000/api/isAdmin', null, { headers });
+  }
+  createUser(formData: any): Observable<any>{
+    console.log(formData)
+    return this.http.post<boolean>('http://localhost:3000/api/user', formData)
+  }
+  compareUsername(): Observable<any>{
+    return this.http.get<any>('http://localhost:3000/api/user');
+  }
+  logueado(token: string): Observable<boolean> {
+    const headers = new HttpHeaders().set('token', token);
+    return this.http.post<boolean>('http://localhost:3000/api/logueado', null, { headers });
+  }
+  esAdmin(token: any){
+    if (token) {
+      // Le sacamos las comillas al token (hecho con chat gpt)
+      const tokenWithoutQuotes = token.replace(/^"(.*)"$/, '$1');
+      this.verificarToken(tokenWithoutQuotes).subscribe(
+        (esAdmin) => {
+          console.log(esAdmin);
+          if (esAdmin) {
+            // El token corresponde a un admin, puedes realizar acciones adicionales aquí.
+            this.adminAcces = true
+            console.log('Es un administrador');
+          } else {
+            // El token no corresponde a un admin.
+            console.log('No es un administrador');
+          }
+        },
+        (error) => {
+          console.error('Error al verificar el token:', error);
+        }
+      );
+    } else {
+      console.log('No existe token bro');
+    }
   }
 }

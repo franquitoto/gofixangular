@@ -32,6 +32,7 @@ export class PopupLoginComponent {
           // acciones si el ingreso es exitoso
           console.log('ingreso exitoso', response)
           sessionStorage.setItem("token", JSON.stringify(response.token))
+          this.usuariosService.esAdmin(JSON.stringify(response.token))
           this.usuariosService.ocultarPopup()
         },
         (error) => {

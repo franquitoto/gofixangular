@@ -1,7 +1,7 @@
 <div class="container">
   <div class="container__aside"></div>
   <div class="container__forms">
-    <form class="container__forms-backoffice" id="formProductos" *ngIf="usuarioService.formProduct" [formGroup]="nuevoProductoForm"  enctype="multipart/form-data" (ngSubmit)="onSubmit()">
+    <form class="container__forms-backoffice" id="formProductos" *ngIf="usuarioService.formProduct" [formGroup]="nuevoProductoForm"  enctype="multipart/form-data" (ngSubmit)="onSubmitProduct()">
       <p id="heading" class="container__forms-heading">Agrega un nuevo producto</p>
       <div class="modal-login__form-field">
         <input
@@ -15,14 +15,11 @@
         />
       </div>
       <div class="modal-login__form-field">
-        <input
-          autocomplete="off"
-          placeholder="categoria"
-          class="modal-login__form-input-field"
-          type="text"
-          name="categoria"
-          formControlName="categoria"
-        />
+        <select name="categoria" class="modal-login__form-input-field select"type="text" formControlName="categoria">
+          <option class="option" value="celulares">celulares</option>
+          <option class="option" value="accesorios">accesorios</option>
+          <option class="option" value="fundas">fundas</option>
+        </select>
       </div>
       <div class="modal-login__form-field">
         <input
@@ -97,22 +94,23 @@
         (change)="onFileChange($event)"
         >
       </div>
-      <span id="spanDuplicados" class="span-duplicados">Los valores marcados en rojo ya existen, por favor modificalos</span>
+      <span *ngIf="errorProduct.valor" id="spanDuplicados" class="span-duplicados">{{errorProduct.mensaje}}</span>
       <div class="modal-login__form-btn">
         <button type="submit" class="modal-login__form-button1">Enviar</button>
       </div>
     </form>
-    <form class="container__forms-backoffice" id="formUsuarios" *ngIf="usuarioService.formUsuario">
+    <form class="container__forms-backoffice" id="formUsuarios" *ngIf="usuarioService.formUsuario" [formGroup]="nuevoUsuarioForm" (ngSubmit)="onSubmitUser()">
       <p id="heading" class="modal-login__form-heading">Agrega un nuevo usuario</p>
       <div class="modal-login__form-field">
         <input
-          onchange="compararValorUsername(this.value)"
           id="username"
           autocomplete="off"
           placeholder="username"
           class="modal-login__form-input-field"
           type="text"
           name="username"
+          formControlName="username"
+          (input)="compararValorUsername($event)"
         />
       </div>
       <div class="modal-login__form-field">
@@ -122,27 +120,29 @@
           class="modal-login__form-input-field"
           type="password"
           name="password"
+          formControlName="password"
         />
       </div>
       <div class="modal-login__form-field">
         <input
           id="email"
-          onchange="compararValorEmail(this.value)"
           autocomplete="off"
           placeholder="email"
           class="modal-login__form-input-field"
           type="email"
           name="email"
+          formControlName="email"
+          (input)="compareValorEmail($event)"
         />
       </div>
       <div class="modal-login__form-field">
-        <select name="roles" class="modal-login__form-input-field select"type="text">
-          <option class="option" value="admin">admin</option>
-          <option class="option" value="moderator">moderator</option>
-          <option class="option" value="user">user</option>
+        <select name="roles" class="modal-login__form-input-field select"type="text" formControlName="rol">
+          <option class="option" value=2>user</option>
+          <option class="option" value=1>admin</option>
+          <option class="option" value=3>superadmin</option>
         </select>
       </div>
-      <span id="spanDuplicados" class="span-duplicados">Los valores marcados en rojo ya existen, por favor modificalos</span>
+      <span *ngIf="errorUser.valor" id="spanDuplicados" class="span-duplicados">{{errorUser.mensaje}}</span>
       <div class="modal-login__form-btn">
         <button type="submit" class="modal-login__form-button1">Enviar</button>
       </div>
@@ -154,5 +154,6 @@
       <p id="heading" class="container__forms-heading">Agrega un nuevo usuario</p>
     </div>
   </div>
-  <div class="container__derecha"></div>
 </div>
+
+
