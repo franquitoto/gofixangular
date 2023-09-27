@@ -19,8 +19,10 @@ export class DetalleComponent implements OnInit {
   precio: any = 0
   constructor(private route: ActivatedRoute, private productoService: ProductosService, private carritoService: CarritoService) { } // Inyectamos activatedRoute en el constructor
   ngOnInit() : void {
+    console.log('entro aca')
     // Accede al parámetro de la URL llamado 'id' (que corresponde al ID del producto)
     this.route.paramMap.subscribe(params => {
+      console.log(params)
       this.productId = params.get('id') || ''; // 'id' debe coincidir con el nombre definido en las rutas
       // Ahora productId contiene el ID del producto que pasaste en la URL
       this.loadProductDetails();
@@ -30,6 +32,7 @@ export class DetalleComponent implements OnInit {
   loadProductDetails() {
     this.productoService.getProduct(this.productId).subscribe((producto: any) => {
       this.producto = producto;
+      console.log(producto, 'producto')
       this.imagen = producto.imagen_url
       this.precio= producto.precio
     });
