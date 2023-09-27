@@ -86,6 +86,7 @@ export class BackofficeComponent {
       formData.append('marca', formValue.marca || '');
       formData.append('color', formValue.color || '');
       formData.append('imagen', formValue.imagen || '');
+      formData.append('destacado','NO' || '');
 
       this.productosService.agregarProducto(formData).subscribe(
         (response: any) => {
