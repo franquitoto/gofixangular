@@ -22,6 +22,7 @@ import { BackofficeComponent } from './pages/backoffice/backoffice.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CarritoComponent } from './pages/carrito/carrito.component';
 import { ModalNavbarComponent } from './components/modal-navbar/modal-navbar.component';
+import { FiltroComponent } from './components/filtro/filtro.component';
 
 
 @NgModule({
@@ -43,7 +44,8 @@ import { ModalNavbarComponent } from './components/modal-navbar/modal-navbar.com
     PopupLoginComponent,
     BackofficeComponent,
     CarritoComponent,
-    ModalNavbarComponent
+    ModalNavbarComponent,
+    FiltroComponent
   ],
   imports: [
     BrowserModule,

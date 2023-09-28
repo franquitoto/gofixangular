@@ -37,6 +37,10 @@ export class ProductosService {
   agregarProducto(formData: any) {
     return this.http.post(this.apiUrl, formData);
   }
+
+  obtenerCategorias(categoria: string){
+    return this.http.get(`${this.apiUrl}/filtro/${categoria}`)
+  }
   
   
   

@@ -9,9 +9,14 @@ import { Producto } from 'src/app/models/producto.models';
 })
 export class ProductosComponent {
   productos: Producto[] = []; // Aca almacenamos los productos
+  
+
   constructor(private productosService: ProductosService){}
 
   ngOnInit() : void{
+    this.obtenerProductos();
+  }
+  obtenerProductos(){
     this.productosService.getProductos().subscribe((data: any) => {
       console.log(data.Productos)
       if (Array.isArray(data.Productos)) {

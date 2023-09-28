@@ -1,0 +1,23 @@
+@use '../../../sass/variables';
+
+.filtro{
+  background-color: variables.$principal;
+  border: solid 2px variables.$principal;
+  border-radius: 1em;
+  margin-top: 2em;
+  margin-left: 2em;
+  padding-top: 2em;
+  padding: 1em;
+  &__checkbox{
+    margin-left: 1em;
+  }
+  &__check{
+    color: white;
+    
+    margin-left: .5em;
+    &:hover{
+      color: variables.$black;
+      font-weight: 900;
+    }
+  }
+}

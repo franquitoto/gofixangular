@@ -94,8 +94,9 @@ export class BackofficeComponent {
           console.log('Producto agregado con éxito', response);
           this.filename = 'Seleccionar archivo'
           this.nuevoProductoForm.reset()
-          const urlImg = response.imagen_url
+          const urlImg = response.urlImg
           const titulo = response.nombre
+          const id = response.idUnico
           Swal.fire({
             title: titulo,
             text: 'Modal with a custom image.',
@@ -106,7 +107,7 @@ export class BackofficeComponent {
             confirmButtonText:'<a routerLink="/productos"><i class="fa fa-thumbs-up">ok</i></a>',
             html:
           'Producto agregado correctamente, ' +
-          '<a href="/productos">ver producto</a> ' +
+          `<a href="/detalle/${id}">ver producto</a>`  + 
           'en detalle',
           })
         },

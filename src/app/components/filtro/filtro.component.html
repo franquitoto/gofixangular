@@ -1,0 +1,36 @@
+<div class="filtro">
+  <h3>Filtro</h3>
+  <h6>Marcas <span class="btn-section"> - </span></h6>
+  <div *ngFor="let i of marca" class="filtro__checkbox">
+    <label>
+      <input type="checkbox" id="categoria-{{i.categoria}}" name="categoria-{{i.categoria}}" value="categoria-{{i.categoria}}"/><span class="checkbox">
+        <span class="filtro__check">{{ i.marca }}</span>
+      </span>
+    </label>
+  </div>
+  <h6>Categorias<span class="btn-section"> - </span></h6>
+  <div *ngFor="let i of categoria" class="filtro__checkbox">
+    <label>
+      <input type="checkbox" id="categoria-{{i.categoria}}" name="categoria-{{i.categoria}}" value="categoria-{{i.categoria}}"/><span class="checkbox">
+        <span class="filtro__check">{{ i.marca }}</span>
+      </span>
+    </label> 
+  </div>
+  <h6>Capacidad<span class="btn-section"> - </span></h6>
+  <div *ngFor="let i of capacidad" class="filtro__checkbox">
+    <label>
+      <input type="checkbox" id="categoria-{{ i.categoria}}" name="categoria-{{ i.categoria}}" value="categoria-{{ i.categoria}}"/><span class="checkbox"
+        ><span class="filtro__check">{{ i.capacidad }}</span></span
+      >
+    </label>
+  </div>
+  <h6>Color <span class="btn-section"> - </span></h6>
+  <div *ngFor="let i of color" class="filtro__checkbox">
+    <label>
+      <input type="checkbox" id="categoria-{{ i.categoria}}" name="categoria-{{ i.categoria}}" value="categoria-{{ i.categoria}}"/><span class="checkbox"
+        ><span class="filtro__check">{{ i.color }}</span></span
+      >
+    </label>
+  </div>
+</div>
+

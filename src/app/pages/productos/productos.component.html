@@ -1,11 +1,13 @@
 <div class="container-principal">
-    <aside class="container-principal__aside"></aside>
-    <div>
-      <h3 class="container-principal__titulo">Productos</h3>
-      <div class="container-principal__products">
-        <div *ngFor="let producto of productos">
-            <app-producto [producto]="producto"></app-producto>
-        </div>
+  <aside class="container-principal__aside">
+    <app-filtro></app-filtro>
+  </aside>
+  <div>
+    <h3 class="container-principal__titulo">Productos</h3>
+    <div class="container-principal__products">
+      <div *ngFor="let producto of productos">
+        <app-producto [producto]="producto"></app-producto>
       </div>
     </div>
   </div>
+</div>
