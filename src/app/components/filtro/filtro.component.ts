@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FiltroService } from 'src/app/servicios/filtro.service';
 import { ProductosService } from 'src/app/servicios/productos.service';
 
 @Component({
@@ -11,7 +12,14 @@ export class FiltroComponent {
   categoria:any='';
   capacidad:any='';
   color:any='';
-  constructor(private productosService: ProductosService){}
+  filtrosSeleccionados: any = {
+    categoria: [],
+    marca: [],
+    capacidad: [],
+    color: [],
+    // Agrega más categorías de filtros según tus necesidades
+  };
+  constructor(private productosService: ProductosService, private filtroService: FiltroService){}
   ngOnInit() : void{
     this.obtenerCategoria();
     this.obtenerMarca();
@@ -42,5 +50,44 @@ export class FiltroComponent {
       console.log(this.color);
     })
   }
+  // nuevoFiltro($event: any){
+  //   if($event.target.checked){
+  //     console.log('activo');
+  //   }else{
+  //     console.log('inactivo')
+  //   }
+  // }
+  nuevoFiltro(event: any) {
+    const filtro = event.target.name
+    const valor = event.target.value
+    if (event.target.checked) {
+      this.filtrosSeleccionados[filtro].push(valor);
+      this.productosService.filtrar(this.filtrosSeleccionados).subscribe(
+        (response) =>{
 
+          console.log(this.filtrosSeleccionados)
+          this.filtroService.setProductosFiltrados(response);
+        },
+        (error) =>{
+          console.log(error)
+        }
+      )
+      console.log(this.filtrosSeleccionados)
+    } else {
+      const index = this.filtrosSeleccionados[filtro].indexOf(valor);
+      if (index !== -1) {
+        this.filtrosSeleccionados[filtro].splice(index, 1);
+        this.productosService.filtrar(this.filtrosSeleccionados).subscribe(
+          (response) =>{
+            console.log(this.filtrosSeleccionados)
+            this.filtroService.setProductosFiltrados(response);
+          },
+          (error) =>{
+            console.log(error)
+          }
+        )
+        
+      }
+    }
+  }
 }

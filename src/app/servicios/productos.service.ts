@@ -41,6 +41,12 @@ export class ProductosService {
   obtenerCategorias(categoria: string){
     return this.http.get(`${this.apiUrl}/filtro/${categoria}`)
   }
+
+  filtrar(filtros: any){
+    console.log('entro aca')
+    console.log(filtros)
+    return this.http.post(`${this.apiUrl}/filtro`, filtros);
+  }
   
   
   

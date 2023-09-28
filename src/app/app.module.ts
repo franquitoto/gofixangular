@@ -19,7 +19,7 @@ import { PopupCarritoComponent } from './components/popup-carrito/popup-carrito.
 import { PopuCarritoDetalleComponent } from './components/popu-carrito-detalle/popu-carrito-detalle.component';
 import { PopupLoginComponent } from './components/popup-login/popup-login.component';
 import { BackofficeComponent } from './pages/backoffice/backoffice.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CarritoComponent } from './pages/carrito/carrito.component';
 import { ModalNavbarComponent } from './components/modal-navbar/modal-navbar.component';
 import { FiltroComponent } from './components/filtro/filtro.component';
@@ -51,7 +51,8 @@ import { FiltroComponent } from './components/filtro/filtro.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
